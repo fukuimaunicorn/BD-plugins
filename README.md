@@ -1,0 +1,2 @@
+# BD-plugins
+BetterDiscord Plugins
