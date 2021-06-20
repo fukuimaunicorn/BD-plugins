@@ -132,7 +132,7 @@ function saveConfig(){
 
 function appendClock(){
     //get frame of chat
-    let chat = BdApi.findModuleByProps("messagesWrapper").messagesWrapper;
+    let chat = document.getElementsByClassName(BdApi.findModuleByProps("messagesWrapper").messagesWrapper)[0];
     
     if(!chat) return;
     
