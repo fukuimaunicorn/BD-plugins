@@ -9,7 +9,6 @@
  */
 
 const fs = require('fs');
-const folder = BdApi.Plugins.folder.replace(/\\/g, "/");
 
 class Clock extends BdApi.React.Component {
     constructor(props){
@@ -52,9 +51,7 @@ class Clock extends BdApi.React.Component {
     }
 
     render() {
-        let clock = this.state.time;
-
-        return clock;
+        return this.state.time;
     }
 }
 let config = {};
@@ -135,9 +132,10 @@ function saveConfig(){
 
 function appendClock(){
     //get frame of chat
-    let chat = document.getElementsByClassName("messagesWrapper-1sRNjr")[0];
-    if(chat==undefined)
-        return;
+    let chat = BdApi.findModuleByProps("messagesWrapper").messagesWrapper;
+    
+    if(!chat) return;
+    
     //create and append div for clock
     let clockDiv = document.createElement("div");
     clockDiv.setAttribute("id", "chatClockDiv");
